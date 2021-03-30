@@ -1,2 +1,2 @@
 # molizhi
-馒头魔力值计算公式放在了python上
+简易的魔力值计算html
