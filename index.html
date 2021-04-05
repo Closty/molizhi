@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head> 
+<head> 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-<title>魔力试算</title> 
+<title>魔力试算</title> 
 </head>
 <body style="text-align:center;">
 <h1>魔力值试算</h1>
-<form oninput="x.value= Math.atan((1-10**(-parseInt(a.value)/4))*parseInt(b.value)*(1+2**(1/2)*10**(-(parseInt(c.value)-1)/6))/300)*50*(2/3.1415926)">
+<form oninput="x.value= Math.atan((1-10**(-parseInt(a.value)/4))*parseInt(b.value)*(1+2**(1/2)*10**(-(parseInt(c.value)-1)/6))/300)*50*(2/3.1415926)+parseInt(g.value)">
+
 几周前发布的种子（周）<br>
-	<input type="number" id="a" value="5"><br><br>
+<input type="number" id="a" oninput="myFunction()" value="5"><br><br>
+
+
 做种总体积（G）<br>
-<input type="number" id="b" value="500"><br><br>
+<input type="number" id="b" oninput="myFunction()" value="500"><br><br>
+
+
 做种者数（人）<br>
-<input type="number" id="c" value="1"><br><br>
-	
-您的基础魔力值为<br>
-<output name="x"></output>
+<input type="number" id="c" oninput="myFunction()" value="1"><br><br>
+
+基础做种加成（+x）<br>
+<input type="number" id="g" oninput="myFunction()" value="9.8"><br><br>
+
+
+
+
+基础魔力值为:
+<output name="x" >50.803811410555646<br></output><br><br>
+官种奖励（x）<br>
+<input type="number" id="v" oninput="myFunction()" value="10"><br><br>
+
+其他加成（x%）<br>
+<input type="number" id="myInput" step="5" oninput="myFunction()" value="0">
+
+<p id="demo"></p>
+<script>
+function myFunction() {
+    var x = Math.atan((1-10**(-parseInt(a.value)/4))*parseInt(b.value)*(1+2**(1/2)*10**(-(parseInt(c.value)-1)/6))/300)*50*(2/3.1415926)+parseInt(g.value);
+    var d = (document.getElementById("myInput").value*0.01+1)* x+parseInt(v.value);
+
+    document.getElementById("demo").innerHTML = "魔力总值为: "+d;
+}
+</script>
+
 </form>
 </body>
 </html>
